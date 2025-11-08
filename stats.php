@@ -99,3 +99,39 @@ function add_stats_dashboard_widget() {
     );
 }
 add_action('wp_dashboard_setup', 'add_stats_dashboard_widget');
+
+// Show statistics widget
+function display_stats_widget() {
+    $stats = calculate_stats();
+    ?>
+    <div class="container">
+        <div class="today">
+            <div class="label">Visit today</div>
+            <div class="number"><?php echo number_format($stats['today']); ?></div>
+        </div>
+        
+        <div class="month">
+            <div class="label">Visit this month</div>
+            <div class="number"><?php echo number_format($stats['month']); ?></div>
+        </div>
+        
+        <div class="year">
+            <div class="label">Visit this year</div>
+            <div class="number"><?php echo number_format($stats['year']); ?></div>
+        </div>
+        
+        <div class="total">
+            <div class="label">Total Visits</div>
+            <div class="number"><?php echo number_format($stats['total']); ?></div>
+        </div>
+    </div>
+    
+    <div class="stats-info">
+        <strong>Note:</strong> This statistic is calculated based on unique visitors per day. Search bots and repeat visits within a day are not counted.
+    </div>
+    
+    <div class="stats-footer">
+        Last update: <?php echo date_i18n('Y/m/d - H:i'); ?>
+    </div>
+    <?php
+}
