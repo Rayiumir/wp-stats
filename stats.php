@@ -179,3 +179,4 @@ function stats_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('site_stats', 'stats_shortcode');
+
