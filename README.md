@@ -2,7 +2,7 @@
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="./logo/logo-dark.png">
         <source media="(prefers-color-scheme: light)" srcset="./logo/logo-light.png">
-        <img alt="TaskSquad Logo" src="./logo/logo-light.png">
+        <img alt="WP Stats" src="./logo/logo-light.png">
     </picture>
 </p>
 
@@ -37,3 +37,13 @@ Only shows visits today or ...
 ```php
 [site_stats type="today"] // today, month, year, total
 ```
+
+# Screenshots
+
+<p align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./screenshots/wp-stats.png">
+        <source media="(prefers-color-scheme: light)" srcset="./screenshots/wp-stats.png">
+        <img alt="WP Stats" src="./screenshots/wp-stats.png">
+    </picture>
+</p>
