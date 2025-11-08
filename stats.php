@@ -89,3 +89,13 @@ function calculate_stats() {
         'total' => $total_visits
     ];
 }
+
+// Add widget to admin wordpress
+function add_stats_dashboard_widget() {
+    wp_add_dashboard_widget(
+        'site_stats_widget',
+        'WP Statistics',
+        'display_stats_widget'
+    );
+}
+add_action('wp_dashboard_setup', 'add_stats_dashboard_widget');
