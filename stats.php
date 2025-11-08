@@ -135,3 +135,47 @@ function display_stats_widget() {
     </div>
     <?php
 }
+
+// Shortcode to display statistics anywhere on the site
+function stats_shortcode($atts) {
+    $atts = shortcode_atts([
+        'type' => 'all' // all, today, month, year, total
+    ], $atts);
+    
+    $stats = calculate_stats();
+    
+    ob_start();
+    ?>
+    <div class="my-stats-shortcode" style="padding: 20px; background: #f9f9f9; border-radius: 8px; margin: 20px 0;">
+        <?php if ($atts['type'] == 'all' || $atts['type'] == 'today'): ?>
+            <div style="margin: 10px 0;">
+                <strong>Visit today:</strong> 
+                <span style="color: #f5576c; font-weight: bold;"><?php echo number_format($stats['today']); ?></span>
+            </div>
+        <?php endif; ?>
+        
+        <?php if ($atts['type'] == 'all' || $atts['type'] == 'month'): ?>
+            <div style="margin: 10px 0;">
+                <strong>Visit this month:</strong> 
+                <span style="color: #00f2fe; font-weight: bold;"><?php echo number_format($stats['month']); ?></span>
+            </div>
+        <?php endif; ?>
+        
+        <?php if ($atts['type'] == 'all' || $atts['type'] == 'year'): ?>
+            <div style="margin: 10px 0;">
+                <strong>Visit this year:</strong> 
+                <span style="color: #38f9d7; font-weight: bold;"><?php echo number_format($stats['year']); ?></span>
+            </div>
+        <?php endif; ?>
+        
+        <?php if ($atts['type'] == 'all' || $atts['type'] == 'total'): ?>
+            <div style="margin: 10px 0;">
+                <strong>Total Visits:</strong> 
+                <span style="color: #fee140; font-weight: bold;"><?php echo number_format($stats['total']); ?></span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('site_stats', 'stats_shortcode');
