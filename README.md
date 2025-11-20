@@ -12,7 +12,9 @@ It is a simple and lightweight visit statistics system that records and displays
 
 ### Description
 
-This code I am sharing is database-free and uses stored dates for calculations. The data is stored in the wp_options table and a visit is recorded each time a user logs in to the site. It uses cookies so that each user is counted only once per day and does not detect and count Google bots and search engines. -
+- This code I am sharing is database free and uses stored dates for calculations. 
+- The data is stored in the **wp_options** table and a visit is recorded each time a user logs in to the site. 
+- It uses **cookies** so that each user is counted only once per day and does not detect and count **Google bots** and **search engines**.
 
 # How to use
 
