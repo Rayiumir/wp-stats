@@ -44,13 +44,13 @@ function record_visit() {
     }
     
     // Save statistics in options
-    update_option('site_stats', $stats, 'no');
+    update_option('my_site_stats', $stats, 'no');
 }
 add_action('wp', 'record_visit');
 
 // Calculate Statistics
 function calculate_stats() {
-    $stats = get_option('site_stats', []);
+    $stats = get_option('my_site_stats', []);
     
     if (empty($stats)) {
         return [
@@ -178,5 +178,5 @@ function stats_shortcode($atts) {
     <?php
     return ob_get_clean();
 }
-add_shortcode('site_stats', 'stats_shortcode');
+add_shortcode('my_site_stats', 'stats_shortcode');
 
